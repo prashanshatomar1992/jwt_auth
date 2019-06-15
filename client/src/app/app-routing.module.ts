@@ -4,11 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 const routes:Routes=[
     {
         path:'',
-        redirectTo:'login'
-    }
+        redirectTo:'login',
+        pathMatch:'full'
+    },{
+        path: 'login',
+        redirectTo: '/login', pathMatch: 'full'
+      }
 ]
 @NgModule({
-    imports:[RouterModule.forRoot(routes)],
+    imports:[],
     exports:[RouterModule]
 })
 export class AppRoutingModule {}

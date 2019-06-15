@@ -3,19 +3,18 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { JwtModule } from '@auth0/angular-jwt';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardRoutesModule } from './dashboard/dashboard.routes';
 import { Routes, RouterModule } from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
+const routes:Routes = [
+  {path:'login',component:LoginComponent}]
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent
   ],
   imports: [
-    RouterModule,    
-    // DashboardRoutesModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -27,7 +26,9 @@ import {AppRoutingModule} from './app-routing.module';
         whitelistedDomains: ['localhost:3000'],
         blacklistedRoutes: ['http://localhost:3000/auth/login']
       }
-    })
+    }),
+
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
