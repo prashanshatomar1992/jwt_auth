@@ -3,14 +3,22 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { JwtModule } from '@auth0/angular-jwt';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardRoutesModule } from './dashboard/dashboard.routes';
+import { Routes, RouterModule } from '@angular/router';
+import {AppRoutingModule} from './app-routing.module';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
+    RouterModule,    
+    // DashboardRoutesModule,
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter() {

@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "ES5",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "inlineSources": true,
+        "declaration": true,
+        "lib": [
+            "dom",
+            "es2015.collection",
+            "es2015.promise",
+            "es5",
+            "es2015.iterable"
+        ],
+        "moduleResolution":"node"
+    },
+    "files": [
+     
+        "custom.d.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
