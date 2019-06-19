@@ -38,7 +38,7 @@ mongoose.connection.on('connected', function () {
     console.log('MongoDB connected!');
 });
 
-app.use('/static',express.static('public'))
+app.use('/static', express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -51,7 +51,14 @@ app.use('/user', user);
 /**HTTPS server creating here */
 var server = https.createServer(options, app);
 var io = require('socket.io')(server);
+io.on('connection', function (client) {
+    console.log('Client connected...');
+    client.on('join', function (data) {
+        console.log(data);
 
+        client.emit('messages', 'Hello from server');
+    });
+})
 app.get('/', function (req, res) {
     res.json({ "tuorial": "Welcome to Prashansha's tutorial   2" })
 });
