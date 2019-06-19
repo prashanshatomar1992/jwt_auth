@@ -1,3 +1,8 @@
-<p>
-login works!
-</p>
+<div> login works!
+    <form [formGroup]='loginForm'>
+        <input type="text" placeholder="email" formControlName="email">
+        <input type="text" placeholder="password" formControlName="password">
+        <button (click)='signup()'>Signup</button>
+    </form>
+    
+</div>

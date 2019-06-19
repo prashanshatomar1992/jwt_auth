@@ -1,10 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
+  <h5>
     Welcome to {{ title }}!
-  </h1>
+  </h5>
   <a [routerLink]="['login']" >Login</a>
+  <a [routerLink]="['signup']" >Signup</a>
 
+  <button><a [routerLink]="['./reactiveform']">Reactive Form</a></button>
+  <button><a [routerLink]="['./templatedrivenform']">Template Driven Form</a></button>
 </div>
 
 <router-outlet></router-outlet>

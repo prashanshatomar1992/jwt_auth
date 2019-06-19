@@ -6,13 +6,30 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { LoginComponent } from './login/login.component';
 import { Routes, RouterModule } from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserComponent } from './user/user.component';
+//form
+import { ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
+import { TemplatedrivenComponent } from './templatedriven/templatedriven.component';
+
 const routes:Routes = [
-  {path:'login',component:LoginComponent}]
+  {path:'login',component:LoginComponent},
+  {path:'signup',component:SignupComponent},
+  { path: 'reactiveform', component: ReactiveformComponent },
+  { path: 'templatedrivenform', component: TemplatedrivenComponent }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    UserComponent,
+    SignupComponent,
+    ReactiveformComponent,
+    TemplatedrivenComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +44,7 @@ const routes:Routes = [
         blacklistedRoutes: ['http://localhost:3000/auth/login']
       }
     }),
-
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

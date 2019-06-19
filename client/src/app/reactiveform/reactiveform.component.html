@@ -1,0 +1,57 @@
+<p>
+  reactiveform works!
+</p>
+<div>
+  <h3>Reactive Form</h3>
+  <h3>Simple Form</h3>
+
+  <form [formGroup]='loginForm'>
+
+    Username : <input type="text" formControlName="username">
+    Password : <input type="text" formControlName="password">
+    <button (click)="login()">Login</button>
+    {{loginForm.value |json}}
+  </form><br>
+  <h3>Nested Form</h3>
+  <form [formGroup]='nestedForm'>
+    Username : <input type="text" formControlName="username">
+    Password : <input type="text" formControlName="password">
+    <!-- nested form -->
+    <div formGroupName='phoneno'>
+      Area:<input type="text" formControlName='area'>
+      Prefix:<input type="text" formControlName='prefix'>
+      Line:<input type="text" formControlName='line'>
+    </div>
+    {{nestedForm.value |json}}
+  </form><br>
+  <h3>Dynamic FormArray Form</h3>
+  <form [formGroup]='dynamicForm'>
+    Email Id: <input type="text" formControlName="emailid">
+    <div formArrayName='phones'>
+      <div *ngFor='let phones of phoneForms.controls;let i=index' [formGroupName]='i'>
+        Area:<input type="text" formControlName='area'>
+        Prefix:<input type="text" formControlName='prefix'>
+        Line:<input type="text" formControlName='line'>
+        <button (click)='deletePhone(i)'>Delete</button>
+      </div>
+    </div>
+    <button (click)='addPhone()'>Add Phone Number</button>
+
+
+    {{dynamicForm.value |json}}
+  </form><br>
+
+  <h3>Form Validation --{{validationForm.valid}}</h3> 
+  <form [formGroup]='validationForm'>
+    Email Id: <input type="text" formControlName="email">
+    Password: <input type="text" formControlName="password">
+    Age: <input type="text" formControlName="email">
+
+    
+    <button (click)='addPhone()' [disabled]='validationForm.invalid'>Add Phone Number</button>
+
+
+    {{validationForm.value |json}}
+  </form><br>
+
+</div>
