@@ -9,7 +9,15 @@ const user = require('./routes/user.route');
 const mongoose = require('mongoose');
 const fs = require('fs');
 var mongodbURL = 'mongodb://localhost:27017/jwtauth';
-
+/**
+ * Enabling HTTPS to express js
+ * Reference link --> https://stackoverflow.com/questions/11744975/enabling-https-on-express-js
+ */
+const https = require('https');
+var key = fs.readFileSync(__dirname + '/certs/selfsigned.key');
+var cert = fs.readFileSync(__dirname + '/certs/selfsigned.crt');
+var options = { key: key, cert: cert };
+/***************** Enabling HTTPS to express js  END********************************************************* */
 /**
  * Mongodb connection without ssl
  */
@@ -20,7 +28,7 @@ var mongodbURL = 'mongodb://localhost:27017/jwtauth';
 var mongodbOptions = { 'server': { 'sslValidate': false, 'sslCA': fs.readFileSync(__dirname + '/js/mongodb.pem') } };
 mongoose.connect(mongodbURL + '?ssl=true', mongodbOptions);
 
-const PORT = 3000;
+var PORT = 3001;
 
 mongoose.connection.on('error', function (err) {
     console.log('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
@@ -30,16 +38,29 @@ mongoose.connection.on('connected', function () {
     console.log('MongoDB connected!');
 });
 
+app.use('/static',express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/checking', function (req, res) {
-    res.json({ "tuorial": "Welcome to Prashansha's tutorial" })
+    res.json({ "tuorial": "Welcome to Prashansha's tutorial    1" })
 });
 
 app.use('/user', user);
 
-app.listen(PORT, () => {
+/**HTTPS server creating here */
+var server = https.createServer(options, app);
+var io = require('socket.io')(server);
+
+app.get('/', function (req, res) {
+    res.json({ "tuorial": "Welcome to Prashansha's tutorial   2" })
+});
+
+server.listen(PORT, () => {
     console.log('Server is running on Port', PORT);
 });
+// PORT =3002
+// app.listen(PORT, () => {
+//     console.log('Server is running on Port', PORT);
+// });
 

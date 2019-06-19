@@ -27,10 +27,7 @@
 
 # dependencies
 /client/node_modules
-/server/node_modules
-/clientaccess/node_modules
-/camcctv/node_modules
-/nest-tracking/node_modules
+/backend/node_modules
 
 
 
