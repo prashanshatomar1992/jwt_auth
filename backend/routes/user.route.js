@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 router.post('/signup', function (req, res) {
     console.log('------signup ------------------')
     console.log(req.body)
-    
+
     bcrypt.hash(req.body.password, 10, function (err, hash) {
         if (err) {
             return res.status(500).json({ error: err });
@@ -31,7 +31,7 @@ router.post('/signup', function (req, res) {
     });
 });
 
-router.post('/signin', function (req, res) {
+router.get('/', function (req, res) {
     User.findOne({ email: req.body.email })
         .exec()
         .then(function (user) {
@@ -60,6 +60,23 @@ router.post('/signin', function (req, res) {
                 return res.status(401).json({
                     failed: 'Unauthorized Access'
                 });
+            });
+        })
+        .catch(error => {
+            res.status(500).json({
+                error: error
+            })
+        })
+})
+router.get('',function (req, res) {
+    console.log('534534534534')
+    User.find({})
+        .exec()
+        .then(function (user) {
+            console.log(user)
+            return res.status(200).json({
+                success: 'Get user data successfully executed',
+                payload: user
             });
         })
         .catch(error => {

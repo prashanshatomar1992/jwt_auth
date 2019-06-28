@@ -13,12 +13,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { TemplatedrivenComponent } from './templatedriven/templatedriven.component';
+import { CrudComponent } from './crud/crud.component';
+
+
+import { ToastrModule } from 'ngx-toastr';
+
 
 const routes:Routes = [
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   { path: 'reactiveform', component: ReactiveformComponent },
-  { path: 'templatedrivenform', component: TemplatedrivenComponent }
+  { path: 'templatedrivenform', component: TemplatedrivenComponent },
+  { path: 'crud', component: CrudComponent }
+
 ]
 
 @NgModule({
@@ -29,12 +36,16 @@ const routes:Routes = [
     UserComponent,
     SignupComponent,
     ReactiveformComponent,
-    TemplatedrivenComponent
+    TemplatedrivenComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    // ToastrModule.forRoot({
+    //   positionClass: 'toast-top-center'
+    // }),
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter() {

@@ -9,6 +9,10 @@ const user = require('./routes/user.route');
 const mongoose = require('mongoose');
 const fs = require('fs');
 var mongodbURL = 'mongodb://localhost:27017/jwtauth';
+const User = require('./models/user.model');
+
+// to allow cross origin request add cors
+var cors = require('cors')
 /**
  * Enabling HTTPS to express js
  * Reference link --> https://stackoverflow.com/questions/11744975/enabling-https-on-express-js
@@ -41,6 +45,7 @@ mongoose.connection.on('connected', function () {
 app.use('/static', express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors())
 
 app.get('/checking', function (req, res) {
     res.json({ "tuorial": "Welcome to Prashansha's tutorial    1" })
@@ -60,7 +65,21 @@ io.on('connection', function (client) {
     });
 })
 app.get('/', function (req, res) {
-    res.json({ "tuorial": "Welcome to Prashansha's tutorial   2" })
+    User.find({})
+    .exec()
+    .then(function (user) {
+        console.log(user)
+        return res.status(200).json({
+            success: 'Get user data successfully executed',
+            payload: user
+        });
+    })
+    .catch(error => {
+        res.status(500).json({
+            error: error
+        })
+    })
+    // res.json({ "tuorial": "Welcome to Prashansha's tutorial   2" })
 });
 
 server.listen(PORT, () => {
