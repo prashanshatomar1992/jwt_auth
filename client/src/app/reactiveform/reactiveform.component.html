@@ -45,10 +45,12 @@
   <form [formGroup]='validationForm'>
     Email Id: <input type="text" formControlName="email">
     Password: <input type="text" formControlName="password">
-    Age: <input type="text" formControlName="email">
+    Age: <input type="text" formControlName="age">
 
     
-    <button (click)='addPhone()' [disabled]='validationForm.invalid'>Add Phone Number</button>
+    <!-- <button (click)='addPhone()' [disabled]='validationForm.invalid'>Add Phone Number</button> -->
+    <button (click)='addPhone()'>Add Phone Number</button>
+
 
 
     {{validationForm.value |json}}

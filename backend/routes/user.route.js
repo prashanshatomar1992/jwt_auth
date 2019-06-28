@@ -5,6 +5,9 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 router.post('/signup', function (req, res) {
+    console.log('------signup ------------------')
+    console.log(req.body)
+    
     bcrypt.hash(req.body.password, 10, function (err, hash) {
         if (err) {
             return res.status(500).json({ error: err });
