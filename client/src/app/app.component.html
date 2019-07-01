@@ -3,15 +3,14 @@
   <h5>
     Welcome to {{ title }}!
   </h5>
-  <a [routerLink]="['login']" >Login</a>
-  <a [routerLink]="['signup']" >Signup</a>
-
+  <button><a [routerLink]="['login']">Login</a></button>
+  <button> <a [routerLink]="['signup']">Signup</a></button> 
   <button><a [routerLink]="['./reactiveform']">Reactive Form</a></button>
   <button><a [routerLink]="['./templatedrivenform']">Template Driven Form</a></button>
   <button><a [routerLink]="['./crud']">CRUD Operations</a></button>
-  <label><a [routerLink]="['./data-share']">Sharing Data</a></label>
+  <button><a [routerLink]="['./data-share']">Sharing Data</a></button>
   <button><a>Parent to child</a></button>
-  <button><a>Shild to parent</a></button>
+  <button><a>Child to parent</a></button>
   <button><a>Siblings</a></button>
 </div>
 

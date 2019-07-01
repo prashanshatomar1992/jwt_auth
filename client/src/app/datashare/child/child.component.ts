@@ -15,6 +15,7 @@ export class ChildComponent implements OnInit {
     console.log('data   ')
     console.log(data)
     console.log(data.currentValue.dd)
+    this.message = data.currentValue.dd
 
     console.log('data   ')
 

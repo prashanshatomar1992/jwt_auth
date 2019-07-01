@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+/**
+ * Link to study data sharing between components
+ * https://angularfirebase.com/lessons/sharing-data-between-angular-components-four-methods/#Parent-to-Child-Sharing-Data-via-Input
+ */
 @Component({
   selector: 'app-datashare',
   templateUrl: './datashare.component.html',
