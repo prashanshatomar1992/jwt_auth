@@ -17,6 +17,9 @@ import { CrudComponent } from './crud/crud.component';
 
 
 import { ToastrModule } from 'ngx-toastr';
+import { DatashareComponent } from './datashare/datashare.component';
+import { ParentComponent } from './datashare/parent/parent.component';
+import { ChildComponent } from './datashare/child/child.component';
 
 
 const routes:Routes = [
@@ -24,7 +27,9 @@ const routes:Routes = [
   {path:'signup',component:SignupComponent},
   { path: 'reactiveform', component: ReactiveformComponent },
   { path: 'templatedrivenform', component: TemplatedrivenComponent },
-  { path: 'crud', component: CrudComponent }
+  { path: 'crud', component: CrudComponent },
+  { path: 'data-share', component: DatashareComponent },
+
 
 ]
 
@@ -37,7 +42,10 @@ const routes:Routes = [
     SignupComponent,
     ReactiveformComponent,
     TemplatedrivenComponent,
-    CrudComponent
+    CrudComponent,
+    DatashareComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,

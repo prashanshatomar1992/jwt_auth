@@ -1,0 +1,11 @@
+<h2>Data share</h2>
+<div class="row">
+  <div class="col-md-6">
+    <app-parent (admin_id)="userInfo($event)" ></app-parent>
+    <!-- <app-parent></app-parent> -->
+  </div>
+  <div class="col-md-6">
+    <app-child [(adminid)]="admininfoid"></app-child>
+  </div>
+
+</div>
