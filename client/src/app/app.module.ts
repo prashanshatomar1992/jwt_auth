@@ -20,6 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { DatashareComponent } from './datashare/datashare.component';
 import { ParentComponent } from './datashare/parent/parent.component';
 import { ChildComponent } from './datashare/child/child.component';
+import { NodemailerComponent } from './nodemailer/nodemailer.component';
 
 
 const routes:Routes = [
@@ -29,8 +30,7 @@ const routes:Routes = [
   { path: 'templatedrivenform', component: TemplatedrivenComponent },
   { path: 'crud', component: CrudComponent },
   { path: 'data-share', component: DatashareComponent },
-
-
+  { path: 'send-mail', component: NodemailerComponent }
 ]
 
 @NgModule({
@@ -45,7 +45,8 @@ const routes:Routes = [
     CrudComponent,
     DatashareComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    NodemailerComponent
   ],
   imports: [
     BrowserModule,

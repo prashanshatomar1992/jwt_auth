@@ -19,7 +19,11 @@ export class CrudComponent implements OnInit {
   get() {
     console.log('----------1-------------------')
     var dd = this.apiService.getUser()
-    this.apiService.getUser().subscribe(res => { console.log('dsdfs ', res)})
+    this.apiService.getUser().subscribe(res => { 
+      console.log('dsdfs ', res)
+      this.data=res['payload']
+    
+    })
     // console.log('Data received ',this.apiService.getUser().subscribe(res=>{console.log('dsdfs ',res)}))
     console.log('----------1--34-----------------')
 

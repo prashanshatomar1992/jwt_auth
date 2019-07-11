@@ -1,6 +1,49 @@
 <div>
-<!-- Data get  {{data | json}} -->
+  <!-- Data get  {{data | json}} -->
   <button (click)='get()'>Get</button>
   <button (click)='signup()'>Signup</button>
+  <!-- {{data | json}} -->
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Sr no.</th>
+          <th>Email</th>
+          <!-- <th>Site Name </th>
+          <th>Status </th> -->
 
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor="let item of data | filter:searchText | paginate:{itemsPerPage:perpage,currentPage:p},let i =index;"
+          (click)="activeRow(item?._id)"> -->
+        <tr *ngFor="let item of data,let i =index;">
+          <td>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="{{item?._id}}" (change)="changeev(item?._id)">
+              <label class="custom-control-label" for="{{item?._id}}"> </label>
+            </div>
+            {{i+1}}
+          </td>
+          <td>{{item?.email}} </td>
+          <!-- <td>{{item?.siteid?.sitename || "NA"}} </td>
+          <td>Active <span class="trashIcon" (click)="openConfirmationDialog(item?._id)">
+              <svg width="14" height="15" viewBox="0 0 13.125 15">
+                <path id="trash_icon" d="M-13.125-10.664a.339.339 0 0 0 .1.249.339.339 0 0 0 .249.1H-.352a.339.339 0 0 0 .249-.1.339.339 0 0 0 .1-.249v-.82a.678.678 0 0 0-.205-.5.678.678 0 0 0-.5-.205h-3.276l-.264-.557a.658.658 0 0 0-.264-.278.743.743 0 0 0-.381-.1h-3.34a.743.743 0 0 0-.381.1.658.658 0 0 0-.264.278l-.264.557h-3.281a.678.678 0 0 0-.5.205.678.678 0 0 0-.205.5zM-.937-9.023a.339.339 0 0 0-.1-.249.339.339 0 0 0-.249-.1h-10.55a.339.339 0 0 0-.249.1.339.339 0 0 0-.1.249V.469a1.356 1.356 0 0 0 .41 1 1.356 1.356 0 0 0 1 .41h8.438a1.356 1.356 0 0 0 1-.41 1.356 1.356 0 0 0 .41-1zm-7.969 1.992v6.562a.456.456 0 0 1-.132.337.456.456 0 0 1-.337.132.456.456 0 0 1-.337-.132.456.456 0 0 1-.132-.337v-6.562a.456.456 0 0 1 .132-.337.456.456 0 0 1 .337-.132.456.456 0 0 1 .337.132.456.456 0 0 1 .132.337zm2.813 0v6.562a.456.456 0 0 1-.132.337.456.456 0 0 1-.337.132.456.456 0 0 1-.338-.132.456.456 0 0 1-.132-.337v-6.562a.456.456 0 0 1 .132-.337.456.456 0 0 1 .338-.132.456.456 0 0 1 .337.132.456.456 0 0 1 .131.337zm2.813 0v6.562a.456.456 0 0 1-.132.337A.456.456 0 0 1-3.75 0a.456.456 0 0 1-.337-.132.456.456 0 0 1-.132-.337v-6.562a.456.456 0 0 1 .132-.337.456.456 0 0 1 .337-.132.456.456 0 0 1 .337.132.456.456 0 0 1 .132.337z"
+                  class="cls-1" data-name="trash icon" transform="translate(13.126 13.126)" />
+              </svg>
+            </span>
+            <a [routerLink]="['../add-access-area']" [queryParams]="{ id: item?._id }">
+              <span class="editIcon">
+                <svg width="15" height="15" viewBox="0 0 15.01 15.01">
+                  <path id="edit_icon" d="M-.41-8.965a1.356 1.356 0 0 0 .41-1 1.356 1.356 0 0 0-.41-1l-1.758-1.758a1.356 1.356 0 0 0-1-.41 1.356 1.356 0 0 0-1 .41l-1.348 1.348a.364.364 0 0 0-.117.264.278.278 0 0 0 .117.234l3.252 3.252a.278.278 0 0 0 .234.117.364.364 0 0 0 .264-.117zM-6.68-10.2a.364.364 0 0 1 .264-.117.278.278 0 0 1 .234.117l3.252 3.257a.278.278 0 0 1 .117.234.364.364 0 0 1-.117.264l-7.675 7.675-3.574.645a.672.672 0 0 1-.615-.205.672.672 0 0 1-.206-.615l.645-3.574zm-4.687 7.031a.4.4 0 0 0 .293.117.4.4 0 0 0 .293-.117l4.511-4.507a.4.4 0 0 0 .117-.293.4.4 0 0 0-.117-.293.4.4 0 0 0-.293-.117.4.4 0 0 0-.293.117l-4.511 4.512a.4.4 0 0 0-.117.293.4.4 0 0 0 .117.293zM-12.422-.7v-1.409h-1.055l-.352 1.875.938.938 1.875-.352V-.7z"
+                    class="cls-1" data-name="edit icon" transform="translate(15.011 13.126)" />
+                </svg>
+              </span>
+            </a>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

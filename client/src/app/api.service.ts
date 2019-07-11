@@ -47,4 +47,7 @@ export class ApiService {
   public addUser(){
     return this.httpClient.post(this.apiURL+'user/signup',{email:'prashansha@mail.com',password:'prashansha'})
   }
+  public sendmail(data){
+    return this.httpClient.post(this.apiURL+'user/sendmail',data)
+  }
 }

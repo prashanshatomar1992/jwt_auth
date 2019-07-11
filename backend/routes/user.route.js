@@ -67,7 +67,7 @@ router.get('/', function (req, res) {
                 error: error
             })
         })
-})
+});
 router.get('',function (req, res) {
     console.log('534534534534')
     User.find({})
@@ -84,5 +84,9 @@ router.get('',function (req, res) {
                 error: error
             })
         })
-})
+});
+router.post('/sendmail', function (req, res) {
+    console.log('------signup ------------------')
+    console.log(req.body)  
+});
 module.exports = router;
